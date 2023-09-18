@@ -7,11 +7,12 @@ int main() {
 	int num;
 	int cnt = 1;
 	int row = 0;
+	int flag = 0;
 
 	cout << "마방빈의 행 혹은 열의 수를 자연수로 입력해주세요.";
 	cin >> num;
 
-	int col = num/2;
+	int col = num / 2;
 
 	int** arr2 = new int* [num];
 
@@ -26,20 +27,24 @@ int main() {
 	}
 
 	arr2[row][col] = cnt;
-	while (cnt!=num*num) {
-		if (row == 0&&col!=num-1) {
-			row = num-1;
+	while (cnt != num * num) {
+		if (num % 2 == 0) {
+			flag = 1;
+			break;
+		}
+		if (row == 0 && col != num - 1) {
+			row = num - 1;
 			++col;
 			++cnt;
 			arr2[row][col] = cnt;
 		}
-		else if (row!=0&&col == num-1) {
+		else if (row != 0 && col == num - 1) {
 			--row;
 			col = 0;
 			++cnt;
 			arr2[row][col] = cnt;
 		}
-		else if (row == 0 && col == num-1) {
+		else if (row == 0 && col == num - 1) {
 			++row;
 			++cnt;
 			arr2[row][col] = cnt;
@@ -48,10 +53,10 @@ int main() {
 			--row;
 			++col;
 			++cnt;
-			if (cnt == 25) {
+			if (cnt == num * num) {
 				row = num - 1;
 				col = num / 2;
-				arr2[row][col] = 25;
+				arr2[row][col] = num * num;
 				break;
 			}
 
@@ -66,12 +71,16 @@ int main() {
 			}
 		}
 	}
-	
-	for (int i = 0; i < num; i++) {
-		for (int j = 0; j < num; j++) {
-			cout << arr2[i][j] << " ";
+	if (flag == 0) {
+		for (int i = 0; i < num; i++) {
+			for (int j = 0; j < num; j++) {
+				cout << arr2[i][j] << " ";
+			}
+			cout << endl;
 		}
-		cout << endl;
+	}
+	else {
+		cout << "잘못된 입력입니다. 홀수를 입력해 주세요.";
 	}
 
 

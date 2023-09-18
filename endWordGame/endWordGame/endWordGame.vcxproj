@@ -21,10 +21,9 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{9d28891d-9d24-476d-ba0c-d5e946e60e52}</ProjectGuid>
-    <RootNamespace>endNameGame</RootNamespace>
+    <ProjectGuid>{886388ba-9705-4a33-9c51-79a3d8df468c}</ProjectGuid>
+    <RootNamespace>endWordGame</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>endWordGame</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
