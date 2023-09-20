@@ -24,5 +24,11 @@
     <ClCompile Include="xy.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="win.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ab.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
