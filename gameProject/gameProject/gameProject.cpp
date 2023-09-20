@@ -5,8 +5,6 @@ using namespace std;
 class Character {
 protected:
 	int user_level = 1;
-	int user_hp = 20;
-	int monster_hp = 10;
 	int monster_level = 1;
 	int m_attPower = 5;
 	int end;
@@ -16,6 +14,8 @@ protected:
 	//flag,k_attCchance,g_attChance,
 
 public:
+	int user_hp = 20;
+	int monster_hp = 10;
 	Character() {}
 	void moreGame() {
 		if (monster_hp <= 0) {
@@ -158,15 +158,15 @@ private:
 	int g_attChance = 1;
 	int g_attPower = 10;
 public:
-	void gun() {
+	void gun(Character* c) {
 		//flag = 2;
 		cout << "공격력 - 10, 공격가능횟수 - " << g_attChance << ", 공격하기 - \"총쏘기\"" << endl;
-		monster_hp -= g_attPower;
-		user_hp -= m_attPower;
+		c->monster_hp -= g_attPower;
+		c->user_hp -= m_attPower;
 		g_attChance--;
-		cout << endl << "Monster hp: " << monster_hp << endl << endl;
-		if (monster_hp > 0)
-			cout << "Monster att user" << endl << endl << "User hp: " << user_hp << endl;
+		cout << endl << "Monster hp: " << c->monster_hp << endl << endl;
+		if (c->monster_hp > 0)
+			cout << "Monster att user" << endl << endl << "User hp: " << c->user_hp << endl;
 	}
 };
 
@@ -175,15 +175,15 @@ private:
 	int k_attChance = 3;
 	int k_attPower = 5;
 public:
-	void knife() {
+	void knife(Character* c) {
 		//flag = 1;
 		cout << "공격력 - 5, 공격가능횟수 - " << k_attChance << ", 공격하기 - \"찌르기\"" << endl;
-		monster_hp -= k_attPower;
-		user_hp -= m_attPower;
+		c->monster_hp -= k_attPower;
+		c->user_hp -= m_attPower;
 		k_attChance--;
-		cout << endl << "Monster hp: " << monster_hp << endl << endl;
-		if (monster_hp > 0)
-			cout << "Monster att user" << endl << endl << "User hp: " << user_hp << endl;
+		cout << endl << "Monster hp: " << c->monster_hp << endl << endl;
+		if (c->monster_hp > 0)
+			cout << "Monster att user" << endl << endl << "User hp: " << c->user_hp << endl;
 	}
 };
 
@@ -204,8 +204,8 @@ int main() {
 		c.stat();
 		c.takeW();
 		if (c.getflag() == 3) break;
-		else if (c.getflag() == 2) g.gun();
-		else if (c.getflag() == 1)k.knife();
+		else if (c.getflag() == 2) g.gun(&c);
+		else if (c.getflag() == 1)k.knife(&c);
 		c1->atk();
 		c.moreGame();
 		cout << endl;
