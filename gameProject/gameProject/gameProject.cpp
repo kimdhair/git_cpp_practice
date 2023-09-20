@@ -4,9 +4,9 @@ using namespace std;
 
 class Character {
 protected:
-	int user_level=1;
-	int user_hp=20;
-	int monster_hp=10;
+	int user_level = 1;
+	int user_hp = 20;
+	int monster_hp = 10;
 	int monster_level = 1;
 	int m_attPower = 5;
 	int end;
@@ -47,7 +47,7 @@ public:
 		cout << "choose your weapon(1: knife[attPower:5] 2: gun[attPower:10] 3: EXIT)";
 		cin >> flag;
 	}
-	virtual int atk() {
+	virtual void atk() {
 		//if (flag == 1) {
 		//	u_attPower = 5;
 		//	cout << "att by knife[attPower: 5 attChance: " << k_attChance << "]";
@@ -120,7 +120,7 @@ protected:
 	//static int flag;
 
 public:
-	int atk() {
+	void atk() {
 		//if (flag == 1) {
 		//	//u_attPower = 5;
 		//	////cout << "att by knife[attPower: 5 attChance: " << k_attChance << "]"<<endl;
@@ -150,14 +150,13 @@ public:
 		//	if (monster_hp > 0)
 		//		cout << "Monster att user" << endl << endl << "User hp: " << user_hp << endl;
 		//}
-		return flag;
 	}
 };
 //int Weapon::flag = 0;
 class Gun :public Weapon {
 private:
-	int g_attChance=1;
-	int g_attPower=10;
+	int g_attChance = 1;
+	int g_attPower = 10;
 public:
 	void gun() {
 		//flag = 2;
@@ -191,17 +190,15 @@ public:
 int main() {
 	int hp = 30;
 	int level = 1;
-	int flag;
 	cout << "==========================================" << endl << "          welcome to game          " << endl << "==========================================" << endl;
 	Character c;
-	Character *c1;
+	Character* c1;
 	Gun g;
 	Knife k;
 	Weapon w;
-		c1=&w;
+	c1 = &w;
 	/*gunKnife gk;
 	c1 = &gk;*/
-
 	while (1) {
 		cout << "User turn!" << endl << "-------------------------------------------" << endl;
 		c.stat();

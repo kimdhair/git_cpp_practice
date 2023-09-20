@@ -13,15 +13,28 @@ int main() {
 	int flag = 0;
 	int cnt = 0;
 	vector<int> answer;
+	vector<int> check_num = { 1,2,3,4,5,6,7,8,9 };
 
-	while (answer.size() < 3)
+	/*while (answer.size() < 3)
 	{
 		int num = rand();
 		answer.push_back(num % 9 + 1);
 		sort(answer.begin(), answer.end());
 		answer.erase(unique(answer.begin(), answer.end()), answer.end());
 	}
-	swap(answer[0], answer[1]);
+	swap(answer[0], answer[1]);*/
+
+	while (answer.size() < 3) {
+		int num = rand();
+		num = num % 9 + 1;
+		for (int j = 0; j < check_num.size(); j++) {
+			if (num == check_num[j]) {
+				answer.push_back(check_num[j]);
+				check_num[j] = 0;
+			}
+		}
+	}
+
 
 	cout << "야구게임!" << endl;
 	while (1) {
