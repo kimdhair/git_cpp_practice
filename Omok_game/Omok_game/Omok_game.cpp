@@ -155,13 +155,15 @@ int main() {
 			cout << endl;
 		}
 		if (turn) {
-			cout << "¹éµ¹" << cnt;
+			gotoxy(16, 21);
+			cout << "¡Ü¹éµ¹ Â÷·Ê" ;
 			if (flag == 1) {
 				break;
 			}
 		}
 		else {
-			cout << "Èæµ¹" << cnt << endl;
+			gotoxy(16, 21);
+			cout << "¡ÛÈæµ¹ Â÷·Ê" ;
 			if (flag == 1) {
 				break;
 			}
@@ -170,6 +172,7 @@ int main() {
 		cursor(0);
 		int i = 1;
 		while (i) {
+			gotoxy(x, y);
 			if (arr2[y][x / 2] != "¦« " && c == KEY_SPACE) {
 				;
 			}
