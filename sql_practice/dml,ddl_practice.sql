@@ -50,4 +50,4 @@ alter table orders add total int;
 update orders set total=10000 where id=1;
 update orders set total=15000 where id=2;
 update orders set total=20000 where id=3;
-update orders set customer_id='John Park' where customer_id='john123';
+update customers set name='John Park' where id='john123';
