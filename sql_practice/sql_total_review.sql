@@ -123,6 +123,9 @@ select first_name, last_name, salary from employees order by salary limit 5;
 select job_id from employees where manager_id is null;
 select * from employees where manager_id is not null;
 select first_name, last_name from employees right join (select job_id from employees where manager_id is null) as abc on abc.job_id=employees.job_id and employees.manager_id is not null;
+#임플로이의 매니저 아이디와 임플로이의 잡 아이디 테이블을 조인
+#매니저아이디 임폴리이 아이디 같은걸 온으로 하고 웨어로 잡아이디찾기
+select e.first_name, e.last_name from employees as e join employees as m on e.manager_id=m.employee_id where e.job_id=m.job_id;
 
 -- 10. 2021년에 채용된 모든 직원의 이름을 반환하는 쿼리를 작성합니다.
 -- (first_name, last_name, hire_date)
@@ -139,6 +142,17 @@ select first_name, last_name, salary, commission_pct from employees where commis
 -- < 심화 >
 -- 13. 관리자보다 먼저 고용된 모든 직원의 이름을 반환하는 쿼리를 작성합니다.
 select hire_date from employees where manager_id is null;
-select first_name, last_name from (select * from employees where manager_id is not null) as a left join on a.hire_date<=(select hire_date from employees where manager_id is null)
+SELECT employees.first_name, employees.last_name 
+	FROM employees 
+	JOIN employees managers ON employees.manager_id = managers.employee_id AND employees.hire_date > managers.hire_date;
+
+SELECT e.first_name, e.last_name
+	FROM employees e
+	JOIN employees m ON e.manager_id = m.employee_id
+	WHERE e.hire_date < m.hire_date;
 
 -- 14. 관리자보다 높은 수수료를 받는 직원의 이름과 급여를 반환하는 쿼리를 작성합니다.
+SELECT employees.first_name, employees.last_name, employees.salary, managers.first_name AS manager_first_name, managers.last_name AS manager_last_name, managers.salary AS manager_salary 
+	FROM employees 
+	JOIN employees managers ON employees.manager_id = managers.employee_id 
+	AND employees.commission_pct > managers.commission_pct;
