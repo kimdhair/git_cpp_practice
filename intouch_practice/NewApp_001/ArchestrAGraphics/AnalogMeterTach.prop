@@ -1,0 +1,22 @@
+{
+  "GraphicVersion": 44,
+  "VisualElementID": 823,
+  "GObjectId": 823,
+  "HelpId": "",
+  "VisualElementName": "AnalogMeterTach",
+  "IsProtected": false,
+  "ContextObject": "",
+  "TimeStamp": 133437032285644363,
+  "VisualElementType": "Symbol",
+  "Errors": null,
+  "Warnings": null,
+  "AttributeReferences": null,
+  "RuntimeDependencies": null,
+  "ClientControlDependencies": null,
+  "Description": "",
+  "VisualElementReferencesStatus": [],
+  "GraphicChangeType": 1,
+  "ContentType": "",
+  "InternalName": null,
+  "ExternalName": null
+}
