@@ -10,8 +10,3 @@ print(a*b_1)
 print(a*b_2)
 print(a*b_3)
 print(a*b)
-
-# 알고리즘: dfs, bfs, 소팅, 재귀, 해시
-# 자료구조: 힙, 트리
-
-# 힙(1), 순열, 조합, dfs, bfs, 해시
